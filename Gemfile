@@ -35,6 +35,13 @@ gem 'jbuilder', '~> 2.5'
 # MARKUP HTML
 gem "haml-rails", "~> 2.0"
 
+# style
+gem 'bootstrap', '~> 5.1.3'
+# load jquery
+gem 'jquery-rails'
+# form
+gem 'simple_form'
+
 group :development, :test do
   gem 'pry'
   # Adds support for Capybara system testing and selenium driver

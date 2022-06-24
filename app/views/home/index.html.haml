@@ -1,2 +1,39 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.erb
+%nav.navbar.navbar-light.bg-light
+	%a.navbar-brand{:href => "#"}
+		%img.d-inline-block.align-top{:alt => "", :height => "30", :src => "/docs/4.0/assets/brand/bootstrap-solid.svg", :width => "30"}/
+		Bootstrap
+
+.container
+	.my-4
+		.row 
+			- @users.each do | user|
+				.col-6.text-center
+					.card
+						.card-body
+							%h5.card-title
+								= user.room.name
+							%p.card-text= "#{user.name} - #{user.description}"
+							%hr
+							.chat 	
+								- @room_messages.each do |room_message|
+									.chat-message-container
+										.row.no-gutters
+											.col-2.text-center
+												=image_tag(room_message.user&.url_image, class: "avatar", width: "80%")
+											.col-10
+												.message-content{class: "#{room_message.user&.id == user&.id ? 'sender-person' : 'receiver-person'}"}
+													%p.mb-1
+														=room_message.message
+													.text-right
+														%small
+															=room_message.created_at
+							= simple_form_for @room_message, url: room_messages_path(@room_message, :user_id => user.id), remote: true do |form|
+								.input-group.mb-3.mt-3
+									.col-10 		
+										= form.input :message, as: :string, label: false, input_html: { class: "form-control " }
+									.col-2
+										= form.submit "Send", class: 'btn btn-primary chat-input w-100'
+								= form.input :room_id, as: :hidden
+
+		
+		

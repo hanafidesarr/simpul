@@ -34,13 +34,14 @@ gem 'jbuilder', '~> 2.5'
 
 # MARKUP HTML
 gem "haml-rails", "~> 2.0"
-
 # style
 gem 'bootstrap', '~> 5.1.3'
 # load jquery
 gem 'jquery-rails'
 # form
 gem 'simple_form'
+# websocket
+gem 'redis'
 
 group :development, :test do
   gem 'pry'

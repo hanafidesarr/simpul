@@ -18,17 +18,17 @@
 						var content = messageTemplate.children().clone(true, true);
 						
 						if (parseInt(current_id) == data.user_id) {
-							bg_box = "sender-person message-content"
+							bg_box = "sender-person message-content w-100"
 							dynamic_col = "col-4"
 						} else {
-							bg_box = "receiver-person message-content"
+							bg_box = "receiver-person message-content w-100"
 							dynamic_col = "col-8"
 						}
 
 						content.find("[data-role='message-box']").attr("class", bg_box);
-						content.find("[data-role='user-avatar']").attr({'src': data.user_avatar_url, 'class': 'avatar w-100'});
+						content.find("[data-role='user-avatar']").attr({'src': data.user_avatar_url, 'class': 'avatar', 'height': '50px', 'width': '50px'});
 						content.find("[data-role='message-text']").text(data.message);
-						content.find("[data-role='message-date']").text(data.updated_at);
+						content.find("[data-role='message-date']").text(data.update_time);
 						content.find("[data-role='dynamic-coloumn']").attr("class", dynamic_col);
 
 						$element.append(content);

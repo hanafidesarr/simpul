@@ -30,11 +30,12 @@
   
 	.avatar {
 	  margin: 5px;
+		border-radius: 50%;
 	}
   
 	.message-content {
 	  padding: 5px;
-	  border-radius: 5px;
+	  border-radius: 10px;
 	  color: $dark;
 	}
   .sender-person {
